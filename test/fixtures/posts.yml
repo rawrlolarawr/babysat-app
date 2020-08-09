@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rate: MyString
+  shift_hours: MyString
+  babysitter_id: MyString
+  accepted: MyString
+
+two:
+  rate: MyString
+  shift_hours: MyString
+  babysitter_id: MyString
+  accepted: MyString
