@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.float :rate
       t.integer :shift_hours
       t.integer :babysitter_id
-      t.boolean :accepted
 
       t.timestamps
     end

@@ -1117,3 +1117,1556 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 17ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 5480)
 
 
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateChildren (20200809153809)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "gender" varchar, "ingratitude_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200809153809"]]
+  [1m[35m (110.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateIngratitudes (20200809154419)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ingratitudes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "notes" varchar, "parent_id" varchar, "post_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200809154419"]]
+  [1m[35m (107.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20200809154803)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "rate" float, "shift_hours" integer, "babysitter_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200809154803"]]
+  [1m[35m (102.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-08-09 13:01:38 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 296)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 197ms (Views: 42.0ms | ActiveRecord: 0.5ms | Allocations: 25768)
+
+
+Started DELETE "/logout" for ::1 at 2020-08-09 13:01:44 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z7DE4c2HXNuhxKQ+ugTL4+Kbwz804cFfJem+yxSsV/99hdHxyWHv9RrAZHkIpeQnj5QEyW6Fekk3sNLoIpbzZQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 0.3ms | Allocations: 2491)
+
+
+Started GET "/" for ::1 at 2020-08-09 13:01:44 -0400
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started GET "/login" for ::1 at 2020-08-09 13:01:44 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 525)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1865)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 7115)
+
+
+Started POST "/login" for ::1 at 2020-08-09 13:01:46 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"js1f9wilJN3Vj2FCNiC5KOwuoT/GTAEdinZ8OPvVNMAgTZQ61RTFKsClFzewtEZEjFsoTLowdJWrAJyUG8Ij4Q==", "user"=>{"email"=>"cchaison0@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "cchaison0@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 310ms (ActiveRecord: 0.4ms | Allocations: 3798)
+
+
+Started GET "/" for ::1 at 2020-08-09 13:01:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 163)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 5484)
+
+
+Started GET "/ingratitude/new" for ::1 at 2020-08-09 13:01:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ingratitude/new"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:02:11 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 9.8ms | Allocations: 2946)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 3228)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 197ms (Views: 23.6ms | ActiveRecord: 2.5ms | Allocations: 22718)
+
+
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:03:01 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 7.2ms | Allocations: 2873)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3151)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 8496)
+
+
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:03:26 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"QxQrs0+rEGyoYze45s8dwNr/j1J2tccCJe3wCjG18e4Y+zJtLMoCJoLxSsTwn0lHt0o3SU/MqbTL0/tXzclX0A==", "ingratitude"=>{"notes"=>"They hate eachother", "children_attributes"=>{"0"=>{"name"=>"Cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"Levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 6182)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:03:40 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"QxQrs0+rEGyoYze45s8dwNr/j1J2tccCJe3wCjG18e4Y+zJtLMoCJoLxSsTwn0lHt0o3SU/MqbTL0/tXzclX0A==", "ingratitude"=>{"notes"=>"They hate eachother", "children_attributes"=>{"0"=>{"name"=>"Cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"Levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1888)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started DELETE "/logout" for ::1 at 2020-08-09 13:04:08 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8elPGUrfQ8OCgHMKDiXz2Bw6SnrtRXCVLbYlzX3I1Z2qBlbHKb5RiagSDnYYdadfcY/yYdQ8HiPDiC6QgbRzow=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.3ms | Allocations: 2213)
+
+
+Started GET "/" for ::1 at 2020-08-09 13:04:08 -0400
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 289)
+
+
+Started GET "/login" for ::1 at 2020-08-09 13:04:08 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 514)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1850)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 7066)
+
+
+Started POST "/login" for ::1 at 2020-08-09 13:04:15 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"CsyiV941TDLpYyD0H7gEDJLBsHfIt2o6aDkN4wCETd766hEwIx61AXncypbRBwbQ+PxTOXE3q52bh3YdybRVqQ==", "user"=>{"email"=>"chris@chris.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "chris@chris.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 327ms (ActiveRecord: 0.2ms | Allocations: 8302)
+
+
+Started GET "/" for ::1 at 2020-08-09 13:04:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 294)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 13.3ms | ActiveRecord: 0.3ms | Allocations: 6276)
+
+
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:04:28 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 10.0ms | Allocations: 2563)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2623)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 6991)
+
+
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:04:47 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"YsVx2yuxrGjgnLgy/L4z7TUC5kJl0sYMr/Toz77pmD1fuQOz3FnVY4BFUUBDrqS3I9AfiAhB3ReVgTTXGQKbgw==", "ingratitude"=>{"notes"=>"something", "children_attributes"=>{"0"=>{"name"=>"jerk", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"another jerk", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1896)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:04:48 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"YsVx2yuxrGjgnLgy/L4z7TUC5kJl0sYMr/Toz77pmD1fuQOz3FnVY4BFUUBDrqS3I9AfiAhB3ReVgTTXGQKbgw==", "ingratitude"=>{"notes"=>"something", "children_attributes"=>{"0"=>{"name"=>"jerk", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"another jerk", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1896)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:04:49 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"YsVx2yuxrGjgnLgy/L4z7TUC5kJl0sYMr/Toz77pmD1fuQOz3FnVY4BFUUBDrqS3I9AfiAhB3ReVgTTXGQKbgw==", "ingratitude"=>{"notes"=>"something", "children_attributes"=>{"0"=>{"name"=>"jerk", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"another jerk", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1896)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:06:07 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"YsVx2yuxrGjgnLgy/L4z7TUC5kJl0sYMr/Toz77pmD1fuQOz3FnVY4BFUUBDrqS3I9AfiAhB3ReVgTTXGQKbgw==", "ingratitude"=>{"notes"=>"something", "children_attributes"=>{"0"=>{"name"=>"jerk", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"another jerk", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1896)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:06:08 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"YsVx2yuxrGjgnLgy/L4z7TUC5kJl0sYMr/Toz77pmD1fuQOz3FnVY4BFUUBDrqS3I9AfiAhB3ReVgTTXGQKbgw==", "ingratitude"=>{"notes"=>"something", "children_attributes"=>{"0"=>{"name"=>"jerk", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"another jerk", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 1896)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:08:03 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1022)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2748)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>New Ingratitude</h1>
+
+<%= render partial: 'form' locals: {ingratitude: @ingratitude} %>
+):
+1:    <h1>New Ingratitude</h1>
+2:    
+3:    <%= render partial: 'form' locals: {ingratitude: @ingratitude} %>
+  
+app/views/ingratitudes/new.html.erb:3: syntax error, unexpected local variable or method, expecting ')'
+app/views/ingratitudes/new.html.erb:3: syntax error, unexpected local variable or method, expecting ')'
+app/views/ingratitudes/new.html.erb:3: syntax error, unexpected local variable or method, expecting ')'
+app/views/ingratitudes/new.html.erb:3: syntax error, unexpected local variable or method, expecting ')'
+app/views/ingratitudes/new.html.erb:3: syntax error, unexpected local variable or method, expecting ')'
+app/views/ingratitudes/new.html.erb:3: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:08:46 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 10.0ms | Allocations: 2853)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 3134)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 24.9ms | ActiveRecord: 0.0ms | Allocations: 8517)
+
+
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:09:02 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"pN875h0b+3zf3296ViLXpe7SAIseBZ0yEm7bPsx6Z6OZo0mO6vOCd78GhgjpMkD/+AD5QXOWhikoGwcma5FkHQ==", "ingratitude"=>{"notes"=>"something", "children_attributes"=>{"0"=>{"name"=>"jerk", "age"=>"3", "gender"=>"M"}, "1"=>{"name"=>"another", "age"=>"2", "gender"=>"F"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 1910)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started GET "/ingratitudes" for ::1 at 2020-08-09 13:10:09 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for IngratitudesController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mIngratitude Load (0.4ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:13:02 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 6.6ms | Allocations: 2960)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3241)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 130ms (Views: 79.7ms | ActiveRecord: 1.7ms | Allocations: 21395)
+
+
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:13:09 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"Q/meP0NIufk+ypRNFgR4MHaCoshyIUK+0f+M6OG6m5d+hexXtKDA8l4TfT+pFO9qYFBbAh+yWaXrilDwRlGYKQ==", "ingratitude"=>{"notes"=>"", "children_attributes"=>{"0"=>{"name"=>"", "age"=>"", "gender"=>"M"}, "1"=>{"name"=>"", "age"=>"", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 3826)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:13:23 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"Q/meP0NIufk+ypRNFgR4MHaCoshyIUK+0f+M6OG6m5d+hexXtKDA8l4TfT+pFO9qYFBbAh+yWaXrilDwRlGYKQ==", "ingratitude"=>{"notes"=>",lkl", "children_attributes"=>{"0"=>{"name"=>",lll", "age"=>"lll", "gender"=>"M"}, "1"=>{"name"=>"kk", "age"=>"ll", "gender"=>"M"}, "2"=>{"name"=>";;;", "age"=>"uuu", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1922)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:13:24 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"Q/meP0NIufk+ypRNFgR4MHaCoshyIUK+0f+M6OG6m5d+hexXtKDA8l4TfT+pFO9qYFBbAh+yWaXrilDwRlGYKQ==", "ingratitude"=>{"notes"=>",lkl", "children_attributes"=>{"0"=>{"name"=>",lll", "age"=>"lll", "gender"=>"M"}, "1"=>{"name"=>"kk", "age"=>"ll", "gender"=>"M"}, "2"=>{"name"=>";;;", "age"=>"uuu", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1922)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:13:24 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"Q/meP0NIufk+ypRNFgR4MHaCoshyIUK+0f+M6OG6m5d+hexXtKDA8l4TfT+pFO9qYFBbAh+yWaXrilDwRlGYKQ==", "ingratitude"=>{"notes"=>",lkl", "children_attributes"=>{"0"=>{"name"=>",lll", "age"=>"lll", "gender"=>"M"}, "1"=>{"name"=>"kk", "age"=>"ll", "gender"=>"M"}, "2"=>{"name"=>";;;", "age"=>"uuu", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1920)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:13:24 -0400
+Processing by IngratitudesController#create as JS
+  Parameters: {"authenticity_token"=>"Q/meP0NIufk+ypRNFgR4MHaCoshyIUK+0f+M6OG6m5d+hexXtKDA8l4TfT+pFO9qYFBbAh+yWaXrilDwRlGYKQ==", "ingratitude"=>{"notes"=>",lkl", "children_attributes"=>{"0"=>{"name"=>",lll", "age"=>"lll", "gender"=>"M"}, "1"=>{"name"=>"kk", "age"=>"ll", "gender"=>"M"}, "2"=>{"name"=>";;;", "age"=>"uuu", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+[31mUnpermitted parameter: :children_attributes[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1920)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:15:09 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/cchaison0/dev/flatiron/finals/RailsPortfolioProject/babysat-app/app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ';', expecting ')'
+...:post_id, :children_attributes; [:name, :age, :gender])
+...                              ^
+/home/cchaison0/dev/flatiron/finals/RailsPortfolioProject/babysat-app/app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ')', expecting `end'
+...ibutes; [:name, :age, :gender])
+...                              ^
+/home/cchaison0/dev/flatiron/finals/RailsPortfolioProject/babysat-app/app/controllers/ingratitudes_controller.rb:36: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ';', expecting ')'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ')', expecting `end'
+app/controllers/ingratitudes_controller.rb:36: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ';', expecting ')'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ')', expecting `end'
+app/controllers/ingratitudes_controller.rb:36: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ';', expecting ')'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ')', expecting `end'
+app/controllers/ingratitudes_controller.rb:36: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:15:10 -0400
+  
+ActionController::RoutingError (uninitialized constant IngratitudesController):
+  
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:15:10 -0400
+  
+ActionController::RoutingError (uninitialized constant IngratitudesController):
+  
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:15:10 -0400
+  
+ActionController::RoutingError (uninitialized constant IngratitudesController):
+  
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:16:04 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/cchaison0/dev/flatiron/finals/RailsPortfolioProject/babysat-app/app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ';', expecting ')'
+...:post_id, :children_attributes; [:name, :age, :gender])
+...                              ^
+/home/cchaison0/dev/flatiron/finals/RailsPortfolioProject/babysat-app/app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ')', expecting `end'
+...ibutes; [:name, :age, :gender])
+...                              ^
+/home/cchaison0/dev/flatiron/finals/RailsPortfolioProject/babysat-app/app/controllers/ingratitudes_controller.rb:36: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ';', expecting ')'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ')', expecting `end'
+app/controllers/ingratitudes_controller.rb:36: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ';', expecting ')'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ')', expecting `end'
+app/controllers/ingratitudes_controller.rb:36: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ';', expecting ')'
+app/controllers/ingratitudes_controller.rb:30: syntax error, unexpected ')', expecting `end'
+app/controllers/ingratitudes_controller.rb:36: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:16:46 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (uninitialized constant IngratitudesController):
+  
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:17:45 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 9.8ms | Allocations: 2958)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 12.5ms | Allocations: 3239)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 22.2ms | ActiveRecord: 1.6ms | Allocations: 18651)
+
+
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:18:00 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"QdZEnErJ9IEfKrQ07v1sgEiguE+wjlOjl+YTLT4AK/J8qjb0vSGNin/zXUZR7fvaXnJBhd0dSLitk881mesoTA==", "ingratitude"=>{"notes"=>"sssss", "children_attributes"=>{"0"=>{"name"=>"s", "age"=>"1", "gender"=>"M"}, "1"=>{"name"=>"ddd", "age"=>"3", "gender"=>"F"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 2.0ms | Allocations: 62054)
+
+
+  
+NoMethodError (undefined method `user_path' for #<IngratitudesController:0x0000563692ea8070>):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:18:53 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"QdZEnErJ9IEfKrQ07v1sgEiguE+wjlOjl+YTLT4AK/J8qjb0vSGNin/zXUZR7fvaXnJBhd0dSLitk881mesoTA==", "ingratitude"=>{"notes"=>"sssss", "children_attributes"=>{"0"=>{"name"=>"s", "age"=>"1", "gender"=>"M"}, "1"=>{"name"=>"ddd", "age"=>"3", "gender"=>"F"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 4.0ms | Allocations: 73685)
+
+
+  
+NoMethodError (undefined method `user_path' for #<IngratitudesController:0x00007f87408c1fd0>):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started GET "/ingratitudes" for ::1 at 2020-08-09 13:22:11 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#index as HTML
+  [1m[36mIngratitude Load (24.3ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:34:in `set_ingratitude'
+  Rendering ingratitudes/index.html.erb within layouts/application
+  Rendered ingratitudes/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1495)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 24.8ms | Allocations: 7308)
+
+
+  
+ActionView::Template::Error (undefined method `children' for nil:NilClass):
+    1: <ul>
+    2:     <% @ingratitude.children.each do |c| %>
+    3:         <li><%= c.name %></li>
+    4:         <li><%= c.age %></li>
+    5:         <li><%= c.gender %></li>
+  
+app/views/ingratitudes/index.html.erb:2
+Started GET "/ingratitudes" for ::1 at 2020-08-09 13:22:35 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#index as HTML
+  [1m[36mIngratitude Load (0.2ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:34:in `set_ingratitude'
+  Rendering ingratitudes/index.html.erb within layouts/application
+  Rendered ingratitudes/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1379)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.4ms | Allocations: 5152)
+
+
+  
+ActionView::Template::Error (undefined method `children' for nil:NilClass):
+    1: <ul>
+    2:     <% @ingratitude.children.each do |c| %>
+    3:         <li><%= c.name %></li>
+    4:         <li><%= c.age %></li>
+    5:         <li><%= c.gender %></li>
+  
+app/views/ingratitudes/index.html.erb:2
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:22:39 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"QdZEnErJ9IEfKrQ07v1sgEiguE+wjlOjl+YTLT4AK/J8qjb0vSGNin/zXUZR7fvaXnJBhd0dSLitk881mesoTA==", "ingratitude"=>{"notes"=>"sssss", "children_attributes"=>{"0"=>{"name"=>"s", "age"=>"1", "gender"=>"M"}, "1"=>{"name"=>"ddd", "age"=>"3", "gender"=>"F"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 190ms (ActiveRecord: 3.1ms | Allocations: 69896)
+
+
+  
+NoMethodError (undefined method `user_path' for #<IngratitudesController:0x00007f8740374230>):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started GET "/ingratitudes/1" for ::1 at 2020-08-09 13:24:07 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngratitude Load (0.2ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:34:in `set_ingratitude'
+  Rendering ingratitudes/show.html.erb within layouts/application
+  Rendered ingratitudes/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1558)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.7ms | Allocations: 7297)
+
+
+  
+ActionView::Template::Error (undefined method `children' for nil:NilClass):
+    1: <ul>
+    2:     <% @ingratitude.children.each do |c| %>
+    3:         <li><%= c.name %></li>
+    4:         <li><%= c.age %></li>
+    5:         <li><%= c.gender %></li>
+  
+app/views/ingratitudes/show.html.erb:2
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:24:26 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:24:32 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:24:36 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:24:41 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:24:47 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:24:50 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:25:54 -0400
+  [1m[36mIngratitude Load (0.2ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/ingratitudes/show.html.erb:2
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:26:01 -0400
+  [1m[36mIngratitude Load (0.2ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/views/ingratitudes/show.html.erb:2
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:26:28 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:26:34 -0400
+  [1m[36mIngratitude Load (0.3ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/ingratitudes/show.html.erb:2
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:27:02 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:27:11 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:27:18 -0400
+  [1m[36mChild Load (0.4ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/views/ingratitudes/show.html.erb:2
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:27:27 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:27:28 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:27:34 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:27:43 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:27:53 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/ingratitudes/show.html.erb:2
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:28:05 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:28:11 -0400
+Started PUT "/__web_console/repl_sessions/0f49c5fa0cc998f149fd39125c838fd0" for ::1 at 2020-08-09 13:28:29 -0400
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:29:25 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"QdZEnErJ9IEfKrQ07v1sgEiguE+wjlOjl+YTLT4AK/J8qjb0vSGNin/zXUZR7fvaXnJBhd0dSLitk881mesoTA==", "ingratitude"=>{"notes"=>"sssss", "children_attributes"=>{"0"=>{"name"=>"s", "age"=>"1", "gender"=>"M"}, "1"=>{"name"=>"ddd", "age"=>"3", "gender"=>"F"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 1.3ms | Allocations: 66380)
+
+
+  
+NoMethodError (undefined method `user_path' for #<IngratitudesController:0x00007f874053f768>):
+  
+app/controllers/ingratitudes_controller.rb:12:in `create'
+Started GET "/ingratitude/new" for ::1 at 2020-08-09 13:30:25 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (9.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ingratitude/new"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:30:32 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 469.4ms | Allocations: 135296)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 470.9ms | Allocations: 135583)
+Completed 500 Internal Server Error in 790ms (ActiveRecord: 1.7ms | Allocations: 150321)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `ingratitude' for #<#<Class:0x00005590316d8a78>:0x00005590316c24f8>
+Did you mean?  @ingratitude):
+    1: <%= form_for ingratitude do |f| %>
+    2:     <%= f.label :notes %>
+    3:     <%= f.text_field :notes %>
+    4:     <ul>
+  
+app/views/ingratitudes/_form.html.erb:1
+app/views/ingratitudes/new.html.erb:3
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:30:51 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 129.3ms | Allocations: 7477)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 131.0ms | Allocations: 7757)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 310ms (Views: 306.6ms | ActiveRecord: 0.0ms | Allocations: 19739)
+
+
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:31:13 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"IPE/laON8K7y9if4ezBDcqPrjq/zX3MXOK26cTS4QWEdjU39VGWJpZIvzorEINQotTl3ZZ7MaAwC2GZpk1NC3w==", "ingratitude"=>{"notes"=>"Hate Eachother", "children_attributes"=>{"0"=>{"name"=>"Cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"Levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 5122)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started GET "/ingratitudes" for ::1 at 2020-08-09 13:31:46 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#index as HTML
+  [1m[36mIngratitude Load (0.4ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:37:in `set_ingratitude'
+Completed 406 Not Acceptable in 33ms (ActiveRecord: 1.4ms | Allocations: 5717)
+
+
+  
+ActionController::MissingExactTemplate (IngratitudesController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:31:51 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"IPE/laON8K7y9if4ezBDcqPrjq/zX3MXOK26cTS4QWEdjU39VGWJpZIvzorEINQotTl3ZZ7MaAwC2GZpk1NC3w==", "ingratitude"=>{"notes"=>"Hate Eachother", "children_attributes"=>{"0"=>{"name"=>"Cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"Levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Redirected to http://localhost:3000/ingratitudes
+Completed 302 Found in 48ms (ActiveRecord: 2.1ms | Allocations: 12500)
+
+
+Started GET "/ingratitudes" for ::1 at 2020-08-09 13:31:51 -0400
+Processing by IngratitudesController#index as HTML
+  [1m[36mIngratitude Load (0.2ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:37:in `set_ingratitude'
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.2ms | Allocations: 1416)
+
+
+  
+ActionController::MissingExactTemplate (IngratitudesController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:32:26 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"IPE/laON8K7y9if4ezBDcqPrjq/zX3MXOK26cTS4QWEdjU39VGWJpZIvzorEINQotTl3ZZ7MaAwC2GZpk1NC3w==", "ingratitude"=>{"notes"=>"Hate Eachother", "children_attributes"=>{"0"=>{"name"=>"Cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"Levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Redirected to http://localhost:3000/ingratitudes
+Completed 302 Found in 43ms (ActiveRecord: 1.7ms | Allocations: 14651)
+
+
+Started GET "/ingratitudes" for ::1 at 2020-08-09 13:32:26 -0400
+Processing by IngratitudesController#index as HTML
+  [1m[36mIngratitude Load (0.3ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:37:in `set_ingratitude'
+Completed 406 Not Acceptable in 6ms (ActiveRecord: 0.3ms | Allocations: 1453)
+
+
+  
+ActionController::MissingExactTemplate (IngratitudesController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/ingratitudes" for ::1 at 2020-08-09 13:32:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#index as HTML
+  [1m[36mIngratitude Load (0.2ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:37:in `set_ingratitude'
+Completed 406 Not Acceptable in 11ms (ActiveRecord: 1.2ms | Allocations: 3609)
+
+
+  
+ActionController::MissingExactTemplate (IngratitudesController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:32:52 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"IPE/laON8K7y9if4ezBDcqPrjq/zX3MXOK26cTS4QWEdjU39VGWJpZIvzorEINQotTl3ZZ7MaAwC2GZpk1NC3w==", "ingratitude"=>{"notes"=>"Hate Eachother", "children_attributes"=>{"0"=>{"name"=>"Cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"Levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 1.9ms | Allocations: 12722)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes"}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:32:55 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 7.2ms | Allocations: 2618)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2678)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 7210)
+
+
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:33:12 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"Y/e5a295WwOz7znKvtWXm4FxEQi+GbTbDdopXfQlyDhei8sDmJEiCNM20LgBxQDBl6PowtOKr8A3r/VFU87Lhg==", "ingratitude"=>{"notes"=>"hate eachother", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 2902)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes"}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:34:39 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"Y/e5a295WwOz7znKvtWXm4FxEQi+GbTbDdopXfQlyDhei8sDmJEiCNM20LgBxQDBl6PowtOKr8A3r/VFU87Lhg==", "ingratitude"=>{"notes"=>"hate eachother", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.7ms | Allocations: 14808)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started GET "/ingratitudes" for ::1 at 2020-08-09 13:35:20 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#index as HTML
+  [1m[36mIngratitude Load (0.3ms)[0m  [1m[34mSELECT "ingratitudes".* FROM "ingratitudes" WHERE "ingratitudes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:37:in `set_ingratitude'
+Completed 406 Not Acceptable in 13ms (ActiveRecord: 0.9ms | Allocations: 3743)
+
+
+  
+ActionController::MissingExactTemplate (IngratitudesController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:35:23 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"Y/e5a295WwOz7znKvtWXm4FxEQi+GbTbDdopXfQlyDhei8sDmJEiCNM20LgBxQDBl6PowtOKr8A3r/VFU87Lhg==", "ingratitude"=>{"notes"=>"hate eachother", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 2.2ms | Allocations: 12704)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:35:39 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"Y/e5a295WwOz7znKvtWXm4FxEQi+GbTbDdopXfQlyDhei8sDmJEiCNM20LgBxQDBl6PowtOKr8A3r/VFU87Lhg==", "ingratitude"=>{"notes"=>"hate eachother", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 2.1ms | Allocations: 14861)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"ingratitudes", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:36:27 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"Y/e5a295WwOz7znKvtWXm4FxEQi+GbTbDdopXfQlyDhei8sDmJEiCNM20LgBxQDBl6PowtOKr8A3r/VFU87Lhg==", "ingratitude"=>{"notes"=>"hate eachother", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 1.6ms | Allocations: 14804)
+
+
+  
+TypeError (exception class/object expected):
+  
+app/controllers/ingratitudes_controller.rb:15:in `raise'
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:37:05 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/cchaison0/dev/flatiron/finals/RailsPortfolioProject/babysat-app/app/controllers/ingratitudes_controller.rb:17: syntax error, unexpected `end', expecting ')'
+    end
+    ^~~
+/home/cchaison0/dev/flatiron/finals/RailsPortfolioProject/babysat-app/app/controllers/ingratitudes_controller.rb:40: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/ingratitudes_controller.rb:17: syntax error, unexpected `end', expecting ')'
+app/controllers/ingratitudes_controller.rb:40: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/ingratitudes_controller.rb:17: syntax error, unexpected `end', expecting ')'
+app/controllers/ingratitudes_controller.rb:40: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/ingratitudes_controller.rb:17: syntax error, unexpected `end', expecting ')'
+app/controllers/ingratitudes_controller.rb:40: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:37:19 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"Y/e5a295WwOz7znKvtWXm4FxEQi+GbTbDdopXfQlyDhei8sDmJEiCNM20LgBxQDBl6PowtOKr8A3r/VFU87Lhg==", "ingratitude"=>{"notes"=>"hate eachother", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 1.9ms | Allocations: 14853)
+
+
+  
+TypeError (exception class/object expected):
+  
+app/controllers/ingratitudes_controller.rb:15:in `raise'
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:37:52 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"Y/e5a295WwOz7znKvtWXm4FxEQi+GbTbDdopXfQlyDhei8sDmJEiCNM20LgBxQDBl6PowtOKr8A3r/VFU87Lhg==", "ingratitude"=>{"notes"=>"hate eachother", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 1.8ms | Allocations: 16313)
+
+
+  
+TypeError (exception class/object expected):
+  
+app/controllers/ingratitudes_controller.rb:15:in `raise'
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started PUT "/__web_console/repl_sessions/796bc9ec9af3867b4f5d05f96b143e55" for ::1 at 2020-08-09 13:38:13 -0400
+Started PUT "/__web_console/repl_sessions/796bc9ec9af3867b4f5d05f96b143e55" for ::1 at 2020-08-09 13:38:17 -0400
+Started PUT "/__web_console/repl_sessions/796bc9ec9af3867b4f5d05f96b143e55" for ::1 at 2020-08-09 13:38:31 -0400
+Started PUT "/__web_console/repl_sessions/796bc9ec9af3867b4f5d05f96b143e55" for ::1 at 2020-08-09 13:38:40 -0400
+Started PUT "/__web_console/repl_sessions/796bc9ec9af3867b4f5d05f96b143e55" for ::1 at 2020-08-09 13:38:48 -0400
+Started PUT "/__web_console/repl_sessions/796bc9ec9af3867b4f5d05f96b143e55" for ::1 at 2020-08-09 13:38:49 -0400
+Started PUT "/__web_console/repl_sessions/796bc9ec9af3867b4f5d05f96b143e55" for ::1 at 2020-08-09 13:40:20 -0400
+Started PUT "/__web_console/repl_sessions/796bc9ec9af3867b4f5d05f96b143e55" for ::1 at 2020-08-09 13:40:26 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:15:in `create'
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:44:01 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"Y/e5a295WwOz7znKvtWXm4FxEQi+GbTbDdopXfQlyDhei8sDmJEiCNM20LgBxQDBl6PowtOKr8A3r/VFU87Lhg==", "ingratitude"=>{"notes"=>"hate eachother", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 1.9ms | Allocations: 16277)
+
+
+  
+TypeError (exception class/object expected):
+  
+app/controllers/ingratitudes_controller.rb:15:in `raise'
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started GET "/ingratitudes/new" for ::1 at 2020-08-09 13:44:07 -0400
+Processing by IngratitudesController#new as HTML
+  Rendering ingratitudes/new.html.erb within layouts/application
+  Rendered ingratitudes/_form.html.erb (Duration: 8.8ms | Allocations: 2619)
+  Rendered ingratitudes/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2679)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 20.6ms | ActiveRecord: 0.0ms | Allocations: 7202)
+
+
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:44:21 -0400
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"EMnHVc7dd2Un9NJZlJVmWcfKwYulKVqOkO2ZflrADqUttbU9OTUObkctOysrhfED0Rg4Qci6QZWqmEVm/SsNGw==", "ingratitude"=>{"notes"=>"cool", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2843)
+
+
+  
+TypeError (exception class/object expected):
+  
+app/controllers/ingratitudes_controller.rb:15:in `raise'
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started PUT "/__web_console/repl_sessions/00565e983cd7ed1da9225905e6e7d919" for ::1 at 2020-08-09 13:44:55 -0400
+Started PUT "/__web_console/repl_sessions/00565e983cd7ed1da9225905e6e7d919" for ::1 at 2020-08-09 13:44:59 -0400
+Started PUT "/__web_console/repl_sessions/00565e983cd7ed1da9225905e6e7d919" for ::1 at 2020-08-09 13:45:34 -0400
+Started PUT "/__web_console/repl_sessions/00565e983cd7ed1da9225905e6e7d919" for ::1 at 2020-08-09 13:45:35 -0400
+Started PUT "/__web_console/repl_sessions/00565e983cd7ed1da9225905e6e7d919" for ::1 at 2020-08-09 13:45:36 -0400
+Started PUT "/__web_console/repl_sessions/00565e983cd7ed1da9225905e6e7d919" for ::1 at 2020-08-09 13:45:37 -0400
+Started PUT "/__web_console/repl_sessions/00565e983cd7ed1da9225905e6e7d919" for ::1 at 2020-08-09 13:45:37 -0400
+Started POST "/ingratitudes" for ::1 at 2020-08-09 13:46:13 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngratitudesController#create as HTML
+  Parameters: {"authenticity_token"=>"EMnHVc7dd2Un9NJZlJVmWcfKwYulKVqOkO2ZflrADqUttbU9OTUObkctOysrhfED0Rg4Qci6QZWqmEVm/SsNGw==", "ingratitude"=>{"notes"=>"cool", "children_attributes"=>{"0"=>{"name"=>"cherrie", "age"=>"2", "gender"=>"F"}, "1"=>{"name"=>"levi", "age"=>"1", "gender"=>"M"}, "2"=>{"name"=>"", "age"=>"", "gender"=>"M"}}}, "commit"=>"Create Ingratitude"}
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.9ms | Allocations: 16297)
+
+
+  
+TypeError (exception class/object expected):
+  
+app/controllers/ingratitudes_controller.rb:15:in `raise'
+app/controllers/ingratitudes_controller.rb:15:in `create'
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:46:18 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:46:19 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:46:35 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:46:36 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:46:47 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:46:52 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:15:in `create'
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:46:53 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:46:55 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:47:03 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:47:10 -0400
+  [1m[36mParent Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Parent"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingratitudes_controller.rb:15:in `create'
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:47:58 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:48:00 -0400
+Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for ::1 at 2020-08-09 13:48:03 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (25.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]

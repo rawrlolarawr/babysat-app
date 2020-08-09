@@ -5,6 +5,7 @@ class CreateChildren < ActiveRecord::Migration[6.0]
       t.integer :age
       t.string :gender
       t.integer :ingratitude_id
+      t.integer :parent_id
 
       t.timestamps
     end
