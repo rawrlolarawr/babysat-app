@@ -1,0 +1,3 @@
+class Babysitter < User
+
+end

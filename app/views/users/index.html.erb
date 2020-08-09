@@ -1,0 +1,7 @@
+<div class="display_email">
+    <p><%= @user.email %></p>
+    <p><%= @user.type %></p>
+    <p><%= @user.class %></p>
+</div>
+
+<p><%= button_to "logout", destroy_user_session_path, method: :delete %></p>
