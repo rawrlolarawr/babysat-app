@@ -2670,3 +2670,557 @@ Started PUT "/__web_console/repl_sessions/c3bab2cb7c7c9d1bc94e1089297455ae" for 
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+Started GET "/children/new" for ::1 at 2020-08-09 15:18:47 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3.2) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3.2) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (81.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (146.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20200808011942)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "type" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200808011942"]]
+  [1m[35m (135.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20200809153809)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "gender" varchar, "ingratitude_id" integer, "parent_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200809153809"]]
+  [1m[35m (115.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateIngratitudes (20200809154419)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "ingratitudes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "notes" varchar, "parent_id" varchar, "post_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200809154419"]]
+  [1m[35m (76.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20200809154803)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "rate" float, "shift_hours" integer, "babysitter_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200809154803"]]
+  [1m[35m (106.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-09 19:19:13.560940"], ["updated_at", "2020-08-09 19:19:13.560940"]]
+  [1m[35m (76.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/children/new" for ::1 at 2020-08-09 15:19:25 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/children/new"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PUT "/__web_console/repl_sessions/83dea6ec8c9329361a4405c2d103b881" for ::1 at 2020-08-09 15:19:46 -0400
+Started PUT "/__web_console/repl_sessions/83dea6ec8c9329361a4405c2d103b881" for ::1 at 2020-08-09 15:19:48 -0400
+Started GET "/" for ::1 at 2020-08-09 15:20:39 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 401 Unauthorized in 46ms (ActiveRecord: 1.4ms | Allocations: 3707)
+
+
+Started GET "/login" for ::1 at 2020-08-09 15:20:40 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.6ms | Allocations: 597)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 29.9ms | Allocations: 2634)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 218ms (Views: 188.4ms | ActiveRecord: 0.0ms | Allocations: 29007)
+
+
+Started GET "/sign_up" for ::1 at 2020-08-09 15:20:42 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 198)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 119)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2190)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 42.9ms | ActiveRecord: 0.0ms | Allocations: 7101)
+
+
+Started POST "/" for ::1 at 2020-08-09 15:20:57 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"P2klcSx1WO0ss9vA/m89QK8FU6rj3do8a0+Z4FbzcF3IDs2oXM7rHObFtoSYKgM/8/a7mP0H3aUbIc4sDygq1A==", "user"=>{"email"=>"cchaison0@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "type"=>"Parent"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cchaison0@gmail.com"], ["LIMIT", 1]]
+  [1m[36mParent Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "cchaison0@gmail.com"], ["encrypted_password", "$2a$12$VyoRIdE8.GjiDoP7A.hKVuxu6AF4zGSpQw.tSXVcwizuOB.T.qmG6"], ["type", "Parent"], ["created_at", "2020-08-09 19:20:58.015798"], ["updated_at", "2020-08-09 19:20:58.015798"]]
+  [1m[35m (74.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 552ms (ActiveRecord: 75.4ms | Allocations: 16329)
+
+
+Started GET "/" for ::1 at 2020-08-09 15:20:58 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 302)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 6364)
+
+
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:21:19 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 160.9ms | Allocations: 70026)
+  Rendered children/new.html.erb within layouts/application (Duration: 162.1ms | Allocations: 70310)
+Completed 500 Internal Server Error in 183ms (ActiveRecord: 0.9ms | Allocations: 76722)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f67a454b8f8>:0x00007f67a454a020>):
+    1: <%= form_for child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started PUT "/__web_console/repl_sessions/357b168156ce4c78a694471e7861d69e" for ::1 at 2020-08-09 15:22:05 -0400
+Started PUT "/__web_console/repl_sessions/357b168156ce4c78a694471e7861d69e" for ::1 at 2020-08-09 15:22:08 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/children/_form.html.erb:1
+Started PUT "/__web_console/repl_sessions/357b168156ce4c78a694471e7861d69e" for ::1 at 2020-08-09 15:22:40 -0400
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:23:42 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 341.2ms | Allocations: 137187)
+  Rendered children/new.html.erb within layouts/application (Duration: 342.7ms | Allocations: 137468)
+Completed 500 Internal Server Error in 347ms (ActiveRecord: 0.0ms | Allocations: 138763)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `child' for #<#<Class:0x00007f67a4f43b58>:0x00007f67a4f42280>
+Did you mean?  @child):
+    1: <%= form_for child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:23:50 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 169.1ms | Allocations: 69965)
+  Rendered children/new.html.erb within layouts/application (Duration: 170.9ms | Allocations: 70246)
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 0.0ms | Allocations: 71546)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f67a53247b8>:0x00007f67a5302b90>):
+    1: <%= form_for @child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:24:43 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 166.5ms | Allocations: 70149)
+  Rendered children/new.html.erb within layouts/application (Duration: 167.0ms | Allocations: 70211)
+Completed 500 Internal Server Error in 230ms (ActiveRecord: 2.2ms | Allocations: 90502)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f67a47e8d40>:0x00007f67a47233d8>):
+    1: <%= form_for @child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:24:58 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 185.1ms | Allocations: 70049)
+  Rendered children/new.html.erb within layouts/application (Duration: 185.5ms | Allocations: 70111)
+Completed 500 Internal Server Error in 192ms (ActiveRecord: 0.2ms | Allocations: 71578)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f67a47e8d40>:0x00007f67a504e020>):
+    1: <%= form_for @child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started GET "/" for ::1 at 2020-08-09 15:25:03 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 290)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 18.2ms | ActiveRecord: 0.2ms | Allocations: 6595)
+
+
+Started GET "/parent/1/children/new" for ::1 at 2020-08-09 15:25:14 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/parent/1/children/new"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:25:25 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 168.9ms | Allocations: 70050)
+  Rendered children/new.html.erb within layouts/application (Duration: 169.3ms | Allocations: 70112)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 0.3ms | Allocations: 71580)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f67a47e8d40>:0x0000556f4de4a450>):
+    1: <%= form_for @child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:25:43 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 219.2ms | Allocations: 69573)
+  Rendered children/new.html.erb within layouts/application (Duration: 221.1ms | Allocations: 69972)
+Completed 500 Internal Server Error in 318ms (ActiveRecord: 2.3ms | Allocations: 94319)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00005628c5066870>:0x00005628c50577d0>):
+    1: <%= form_for @child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:28:14 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 174.7ms | Allocations: 69301)
+  Rendered children/new.html.erb within layouts/application (Duration: 176.2ms | Allocations: 69584)
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 0.4ms | Allocations: 71977)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f8974a714d0>:0x00007f8974a6fa18>):
+    1: <%= form_for child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started PUT "/__web_console/repl_sessions/136630dfc3db7fd4df22d92f4ce0f15c" for ::1 at 2020-08-09 15:28:24 -0400
+Started PUT "/__web_console/repl_sessions/136630dfc3db7fd4df22d92f4ce0f15c" for ::1 at 2020-08-09 15:28:25 -0400
+Started PUT "/__web_console/repl_sessions/136630dfc3db7fd4df22d92f4ce0f15c" for ::1 at 2020-08-09 15:28:34 -0400
+Started PUT "/__web_console/repl_sessions/136630dfc3db7fd4df22d92f4ce0f15c" for ::1 at 2020-08-09 15:28:39 -0400
+Started PUT "/__web_console/repl_sessions/136630dfc3db7fd4df22d92f4ce0f15c" for ::1 at 2020-08-09 15:28:39 -0400
+Started PUT "/__web_console/repl_sessions/136630dfc3db7fd4df22d92f4ce0f15c" for ::1 at 2020-08-09 15:29:03 -0400
+Started PUT "/__web_console/repl_sessions/136630dfc3db7fd4df22d92f4ce0f15c" for ::1 at 2020-08-09 15:29:06 -0400
+Started GET "/parents/1/children/1" for ::1 at 2020-08-09 15:30:07 -0400
+Processing by ChildrenController#show as HTML
+  Parameters: {"parent_id"=>"1", "id"=>"1"}
+  [1m[36mChild Load (0.5ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:37:in `set_child'
+Completed 406 Not Acceptable in 10ms (ActiveRecord: 0.5ms | Allocations: 3078)
+
+
+  
+ActionController::MissingExactTemplate (ChildrenController#show is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.1.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:31:15 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 161.6ms | Allocations: 69934)
+  Rendered children/new.html.erb within layouts/application (Duration: 163.1ms | Allocations: 70216)
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 0.3ms | Allocations: 72532)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00005628c54279f0>:0x00005628c5424b38>):
+    1: <%= form_with model: child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started PUT "/__web_console/repl_sessions/d4a3d613cb668a348b9248f63ccd4d35" for ::1 at 2020-08-09 15:34:08 -0400
+Started PUT "/__web_console/repl_sessions/d4a3d613cb668a348b9248f63ccd4d35" for ::1 at 2020-08-09 15:34:12 -0400
+Started PUT "/__web_console/repl_sessions/d4a3d613cb668a348b9248f63ccd4d35" for ::1 at 2020-08-09 15:34:20 -0400
+Started PUT "/__web_console/repl_sessions/d4a3d613cb668a348b9248f63ccd4d35" for ::1 at 2020-08-09 15:34:32 -0400
+Started PUT "/__web_console/repl_sessions/d4a3d613cb668a348b9248f63ccd4d35" for ::1 at 2020-08-09 15:34:36 -0400
+  [1m[36mChild Load (0.5ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."parent_id" = ?[0m  [["parent_id", 1]]
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:35:45 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 162.3ms | Allocations: 69949)
+  Rendered children/new.html.erb within layouts/application (Duration: 163.9ms | Allocations: 70232)
+Completed 500 Internal Server Error in 175ms (ActiveRecord: 0.2ms | Allocations: 72547)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f8974afdd40>:0x00007f8974afc440>):
+    1: <%= form_for child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:36:36 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 155.9ms | Allocations: 69948)
+  Rendered children/new.html.erb within layouts/application (Duration: 157.8ms | Allocations: 70380)
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 0.2ms | Allocations: 72676)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f8974567a20>:0x00007f8974565900>):
+    1: <%= form_for child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started PUT "/__web_console/repl_sessions/f80433327664de9b08ad66c14943bd4c" for ::1 at 2020-08-09 15:36:59 -0400
+Started PUT "/__web_console/repl_sessions/f80433327664de9b08ad66c14943bd4c" for ::1 at 2020-08-09 15:37:00 -0400
+Started GET "/parents/1/children/new" for ::1 at 2020-08-09 15:37:07 -0400
+Processing by ChildrenController#new as HTML
+  Parameters: {"parent_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:10:in `new'
+  Rendering children/new.html.erb within layouts/application
+  Rendered children/_form.html.erb (Duration: 162.6ms | Allocations: 69949)
+  Rendered children/new.html.erb within layouts/application (Duration: 164.4ms | Allocations: 70381)
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 0.3ms | Allocations: 72701)
+
+
+  
+ActionView::Template::Error (undefined method `children_path' for #<#<Class:0x00007f8974a42608>:0x00007f8974a40d08>):
+    1: <%= form_for child do |f| %>
+    2:     <%= f.label :name %>
+    3:     <%= f.text_field :name %>
+    4: 
+  
+app/views/children/_form.html.erb:1
+app/views/children/new.html.erb:3
+Started PUT "/__web_console/repl_sessions/9fafccb73e75cbc54aa9a61228fa02dc" for ::1 at 2020-08-09 15:37:42 -0400
+Started PUT "/__web_console/repl_sessions/9fafccb73e75cbc54aa9a61228fa02dc" for ::1 at 2020-08-09 15:37:44 -0400
+Started PUT "/__web_console/repl_sessions/9fafccb73e75cbc54aa9a61228fa02dc" for ::1 at 2020-08-09 15:37:45 -0400
+Started PUT "/__web_console/repl_sessions/9fafccb73e75cbc54aa9a61228fa02dc" for ::1 at 2020-08-09 15:37:53 -0400
+Started PUT "/__web_console/repl_sessions/9fafccb73e75cbc54aa9a61228fa02dc" for ::1 at 2020-08-09 15:37:59 -0400

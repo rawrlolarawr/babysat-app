@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_154803) do
     t.integer "age"
     t.string "gender"
     t.integer "ingratitude_id"
+    t.integer "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

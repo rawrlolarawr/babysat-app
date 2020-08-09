@@ -1,0 +1,12 @@
+<%= form_for child do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+
+    <%= f.label :gender %>
+    <%= f.select :gender, ["M", "F"] %>
+
+    <%= f.submit %>
+<% end %>

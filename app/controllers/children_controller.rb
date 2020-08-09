@@ -1,12 +1,18 @@
 class ChildrenController < ApplicationController
+    before_action :set_child
+    skip_before_action :set_child, only: [:index, :new, :create]
+    
     def index
-
+        @children = Child.all
     end
 
     def new
+        @child = current_user.children.build
     end
 
     def create
+        @child = current_user.children.create(child_params)
+        redirect_to @child
     end
 
     def show
@@ -24,7 +30,7 @@ class ChildrenController < ApplicationController
     private
 
     def child_params
-        params.require(:child).permit(:name, :age, :gender)
+        params.require(:child).permit(:name, :age, :gender, :parent_id)
     end
 
     def set_child
